@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "Crypto Market",
+    "slug": "crypto-market",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#0B0E11",
+      "resizeMode": "contain"
+    },
+    "android": {
+      "package": "com.cryptomarket.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0B0E11"
+      }
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "plugins": [
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "4989676d-905c-4e65-8bd1-54a5dd4ac269"
+      }
+    }
+  }
+}
