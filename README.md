@@ -2,7 +2,7 @@
 
 Aplikasi mobile Android (React Native + TypeScript + Expo) buat mantau harga cryptocurrency secara real-time. Data koin diambil dari **CoinLore API**, dan kurs Rupiah diambil dari **ExchangeRate API**.
 
-Tampilannya dibuat gelap (dark mode) ala-ala Binance/Tokocrypto biar keliatan premium dan nyaman di mata.
+Tampilannya dibuat gelap (dark mode) agar nyaman dilihat.
 
 ---
 
@@ -90,13 +90,4 @@ src/
 ├── theme/
 │   └── colors.ts            # Palette warna dark mode (Binance style)
 └── App.tsx                  # Root file untuk setup provider & rute
-```
-
----
-
-## ⚙️ Cara Cek TypeScript Error
-
-Buat mastiin gak ada error ketikan/type data di TypeScript sebelum kamu build APK:
-```bash
-npm run typecheck
 ```
