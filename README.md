@@ -1,74 +1,71 @@
-# Crypto Market - Aplikasi Harga Cryptocurrency Real-Time
+# Crypto Market
 
-Aplikasi mobile berbasis **React Native** dengan **TypeScript** dan **Expo SDK** untuk menampilkan harga cryptocurrency terkini secara real-time yang bersumber dari [CoinLore API](https://api.coinlore.net/api/tickers/).
+Aplikasi mobile Android (React Native + TypeScript + Expo) buat mantau harga cryptocurrency secara real-time. Data koin diambil dari **CoinLore API**, dan kurs Rupiah diambil dari **ExchangeRate API**.
 
-Desain antarmuka aplikasi ini mengadopsi tema gelap premium (*dark mode*) yang terinspirasi dari bursa aset kripto global terkemuka seperti Binance dan Tokocrypto, lengkap dengan statistik harga dinamis dalam mata uang **Rupiah (IDR)**.
-
----
-
-## ✨ Fitur Utama
-
-- 🪙 **Logo Koin Asli (Real Coin Icons)**: Menampilkan logo cryptocurrency resmi secara otomatis dari CoinCap CDN. Dilengkapi sistem *fallback* cerdas (inisial huruf berlatar emas) jika logo tidak ditemukan di CDN atau perangkat sedang luring.
-- 🇮🇩 **Konversi Rupiah Real-Time**: Konversi harga USD ke Rupiah secara otomatis menggunakan data kurs dinamis dari *ExchangeRate API* (dengan batas waktu timeout dan *fallback* aman ke Rp16.300 jika koneksi terganggu).
-- 📊 **Statistik Pasar Lengkap (dalam Rupiah)**:
-  - **Kapitalisasi Pasar (Market Cap)**: Diformat dinamis menggunakan singkatan lokal (misal: **T** untuk Triliun, **M** untuk Miliar).
-  - **Volume Perdagangan 24 Jam**: Volume transaksi harian dalam Rupiah.
-  - **Tren Harga 7 Hari terakhir**: Indikator persentase tren naik (hijau) atau turun (merah).
-- 📈 **Perubahan Harga 24 Jam**: Lencana persentase perubahan harga harian yang interaktif di sebelah simbol koin (warna hijau untuk naik, merah untuk turun).
-- 🔍 **Pencarian Cepat**: Filter pencarian instan berdasarkan nama koin atau simbol secara *case-insensitive*.
-- 🔄 **Pull to Refresh**: Geser ke bawah untuk menyegarkan data harga dan kurs mata uang terbaru.
-- 📱 **Desain Premium & Animasi Halus**:
-  - Animasi *fade-in* bertingkat (*staggered*) saat daftar dimuat menggunakan `react-native-reanimated`.
-  - Efek tombol membal (*bounce scaling*) saat kartu ditekan.
-  - Ikon aplikasi kustom dan *Splash Screen* gelap untuk menghindari layar putih yang berkedip saat memuat aplikasi.
+Tampilannya dibuat gelap (dark mode) ala-ala Binance/Tokocrypto biar keliatan premium dan nyaman di mata.
 
 ---
 
-## 🚀 Instalasi & Persiapan Lokal
+## 🚀 Fitur Utama
 
-Pastikan Anda telah menginstal [Node.js](https://nodejs.org/) di komputer Anda dan aplikasi **Expo Go** pada ponsel Android/iOS Anda untuk pengujian.
+- **Logo Koin Real**: Logo koin langsung muncul dari CoinCap CDN. Kalau pas offline atau logonya gak ada, otomatis bakal nampilin inisial koin sebagai cadangan.
+- **Harga Rupiah (IDR) Real-time**: Konversi harga USD ke Rupiah secara otomatis pakai data kurs terbaru. Kalau API kurs bermasalah, ada fallback otomatis ke rate Rp16.300.
+- **Statistik Lengkap**:
+  - **Kap Pasar (Market Cap)** dalam Rupiah (dibuat ringkas pakai Miliar / Triliun).
+  - **Volume 24 Jam** dalam Rupiah.
+  - **Tren 7 Hari** terakhir (naik/turun).
+- **Persentase Perubahan 24 Jam**: Ada badge hijau (kalau naik) atau merah (kalau turun) lengkap dengan ikon panah di sebelah simbol koin.
+- **Fitur Pencarian**: Bisa cari koin berdasarkan nama atau simbolnya.
+- **Tarik untuk Refresh (Pull-to-refresh)**: Tinggal tarik ke bawah buat update harga dan kurs terbaru.
+- **Splash Screen & Ikon Premium**: Splash screen bawaan sudah diubah jadi gelap (biar gak ada flash putih pas dibuka) dan ikon aplikasi sudah pakai logo kustom.
 
-1. **Clone Repositori**:
+---
+
+## 🛠️ Cara Install & Menjalankan di Lokal
+
+Pastiin komputer kamu udah keinstall **Node.js**, dan HP kamu udah keinstall aplikasi **Expo Go** (bisa download di Play Store/App Store).
+
+1. Clone repo ini:
    ```bash
    git clone https://github.com/MhdZaka/CRYPTOMARKET.git
    cd CRYPTOMARKET
    ```
 
-2. **Install Dependensi**:
+2. Install dependensi:
    ```bash
    npm install
    ```
 
-3. **Jalankan Project**:
+3. Jalankan aplikasi:
    ```bash
    npm start
    ```
 
-4. **Menjalankan di HP**:
-   Buka aplikasi **Expo Go** di ponsel Anda, lalu pindai (*scan*) QR Code yang muncul di terminal VS Code Anda (pastikan ponsel dan komputer terhubung ke jaringan Wi-Fi yang sama).
+4. Buka di HP:
+   Buka aplikasi **Expo Go** di HP kamu, lalu scan QR code yang muncul di terminal VS Code. (Pastiin HP dan laptop kamu terhubung ke Wi-Fi yang sama).
 
 ---
 
-## 📦 Cara Build Menjadi Aplikasi APK (Android)
+## 📦 Cara Build Jadi APK
 
-Aplikasi ini dikonfigurasi menggunakan **EAS Build** agar proses build APK berjalan di server cloud Expo secara gratis.
+Aplikasi ini udah dikonfigurasi pakai **EAS Build** biar bisa di-build di cloud Expo (gratis dan gak perlu install Android Studio di laptop).
 
-1. Install EAS CLI di komputer Anda secara global:
+1. Install EAS CLI secara global:
    ```bash
    npm install -g eas-cli
    ```
 
-2. Login ke akun Expo Anda:
+2. Login ke akun Expo kamu (bisa bikin gratis di expo.dev):
    ```bash
    eas login
    ```
 
-3. Jalankan proses pembuatan file APK:
+3. Jalankan perintah build APK:
    ```bash
    eas build --platform android --profile preview
    ```
 
-Setelah proses build selesai, Anda akan diberikan tautan unduhan dan QR Code untuk mengunduh dan menginstal file APK tersebut langsung ke ponsel Android Anda.
+Tunggu prosesnya sampai selesai. Nanti bakal muncul link download dan QR code di terminal. Tinggal scan atau klik link-nya buat download file APK ke HP kamu.
 
 ---
 
@@ -77,29 +74,29 @@ Setelah proses build selesai, Anda akan diberikan tautan unduhan dan QR Code unt
 ```text
 src/
 ├── api/
-│   └── coinloreApi.ts       # Konfigurasi instansiasi Axios untuk CoinLore API
+│   └── coinloreApi.ts       # Setup Axios buat CoinLore API
 ├── components/
-│   ├── CryptoCard.tsx       # Komponen kartu koin (animasi, logo koin, konversi IDR, detail stats)
-│   ├── Header.tsx           # Header aplikasi dengan lencana kedipan "LIVE"
-│   └── Loading.tsx          # Spinner pemuatan awal berwarna emas
+│   ├── CryptoCard.tsx       # Kartu koin (animasi, logo koin, konversi IDR, detail statistik)
+│   ├── Header.tsx           # Header atas aplikasi (ada badge kedip "LIVE")
+│   └── Loading.tsx          # Tampilan loading pas awal buka aplikasi
 ├── interfaces/
-│   └── Crypto.ts            # Tipe data TypeScript (Model koin & respons API)
+│   └── Crypto.ts            # Tipe data TypeScript (Type untuk koin & respons API)
 ├── navigation/
-│   └── AppNavigator.tsx     # Konfigurasi tumpukan navigasi React Navigation
+│   └── AppNavigator.tsx     # Router / Navigasi aplikasi
 ├── screens/
-│   └── HomeScreen.tsx       # State manajemen (search, fetch data, refresh, load rate USD-IDR)
+│   └── HomeScreen.tsx       # Layar utama (pencarian, load data koin & kurs Rupiah)
 ├── services/
-│   └── cryptoService.ts     # Integrasi pemanggilan API CoinLore dan ExchangeRate
+│   └── cryptoService.ts     # Service buat fetch data koin & kurs exchange rate
 ├── theme/
-│   └── colors.ts            # Skema warna global (Binance theme)
-└── App.tsx                  # Root entrypoint setup Provider & Navigator
+│   └── colors.ts            # Palette warna dark mode (Binance style)
+└── App.tsx                  # Root file untuk setup provider & rute
 ```
 
 ---
 
-## ⚙️ Skrip Pengujian
+## ⚙️ Cara Cek TypeScript Error
 
-Untuk melakukan pemeriksaan tipe data TypeScript demi memastikan tidak ada error kode sebelum rilis:
+Buat mastiin gak ada error ketikan/type data di TypeScript sebelum kamu build APK:
 ```bash
 npm run typecheck
 ```
