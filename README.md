@@ -2,7 +2,7 @@
 
 Aplikasi mobile Android (React Native + TypeScript + Expo) buat mantau harga cryptocurrency secara real-time. Data koin diambil dari **CoinLore API**, dan kurs Rupiah diambil dari **ExchangeRate API**.
 
-Tampilannya dibuat gelap (dark mode) agar nyaman dilihat.
+dengan tampilan dark mode agar nyaman dilihat.
 
 ---
 
@@ -17,11 +17,10 @@ Tampilannya dibuat gelap (dark mode) agar nyaman dilihat.
 - **Persentase Perubahan 24 Jam**: Ada badge hijau (kalau naik) atau merah (kalau turun) lengkap dengan ikon panah di sebelah simbol koin.
 - **Fitur Pencarian**: Bisa cari koin berdasarkan nama atau simbolnya.
 - **Tarik untuk Refresh (Pull-to-refresh)**: Tinggal tarik ke bawah buat update harga dan kurs terbaru.
-- **Splash Screen & Ikon Premium**: Splash screen bawaan sudah diubah jadi gelap (biar gak ada flash putih pas dibuka) dan ikon aplikasi sudah pakai logo kustom.
 
 ---
 
-## 🛠️ Cara Install & Menjalankan di Lokal
+## 🛠️ Cara Penggunaan
 
 Pastiin komputer kamu udah keinstall **Node.js**, dan HP kamu udah keinstall aplikasi **Expo Go** (bisa download di Play Store/App Store).
 
@@ -43,29 +42,6 @@ Pastiin komputer kamu udah keinstall **Node.js**, dan HP kamu udah keinstall apl
 
 4. Buka di HP:
    Buka aplikasi **Expo Go** di HP kamu, lalu scan QR code yang muncul di terminal VS Code. (Pastiin HP dan laptop kamu terhubung ke Wi-Fi yang sama).
-
----
-
-## 📦 Cara Build Jadi APK
-
-Aplikasi ini udah dikonfigurasi pakai **EAS Build** biar bisa di-build di cloud Expo (gratis dan gak perlu install Android Studio di laptop).
-
-1. Install EAS CLI secara global:
-   ```bash
-   npm install -g eas-cli
-   ```
-
-2. Login ke akun Expo kamu (bisa bikin gratis di expo.dev):
-   ```bash
-   eas login
-   ```
-
-3. Jalankan perintah build APK:
-   ```bash
-   eas build --platform android --profile preview
-   ```
-
-Tunggu prosesnya sampai selesai. Nanti bakal muncul link download dan QR code di terminal. Tinggal scan atau klik link-nya buat download file APK ke HP kamu.
 
 ---
 
