@@ -32,8 +32,6 @@ Mengusung desain antarmuka *dark mode* premium yang terinspirasi dari aplikasi p
 - **HTTP Client:** Axios
 - **Build Tool:** Vite
 
-*(Catatan: Versi React Native sebelumnya dari proyek ini telah disimpan dengan aman di `.gitignore` sebagai `react-native-backup` untuk keperluan referensi riwayat/legacy)*
-
 ---
 
 ## 💻 Cara Instalasi & Menjalankan
@@ -61,11 +59,11 @@ Pastikan komputer Anda sudah terinstal **Node.js**.
    ```
 
 4. **Testing di Browser:**
-   Aplikasi akan terbuka secara otomatis di browser (*default URL*: `http://localhost:8100`). **Tips Terbaik:** Tekan tombol **F12** di browser dan pilih ikon *Device Toolbar / Mobile Simulator* untuk menikmati *layout* dalam ukuran *smartphone*.
+   Aplikasi akan terbuka secara otomatis di browser (*default URL*: `http://localhost:8100`).
 
 ---
 
-## 📂 Struktur Proyek Baru
+## 📂 Struktur Proyek
 
 ```text
 src/
