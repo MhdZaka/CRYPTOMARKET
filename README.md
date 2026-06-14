@@ -1,6 +1,6 @@
 # Crypto Market (Ionic + Vue)
 
-Aplikasi pemantau harga cryptocurrency secara real-time yang dibangun ulang menggunakan **Ionic Framework**, **Vue.js**, dan **TypeScript**. Data koin diambil secara *real-time* dari **CoinLore API**, dengan harga yang dikonversi ke kurs Rupiah menggunakan **ExchangeRate API**.
+Aplikasi pemantau harga cryptocurrency secara real-time dengan menggunakan **Ionic Framework**, **Vue.js**, dan **TypeScript**. Data koin diambil secara *real-time* dari **CoinLore API**, dengan harga yang dikonversi ke kurs Rupiah menggunakan **ExchangeRate API**.
 
 Mengusung desain antarmuka *dark mode* premium yang terinspirasi dari aplikasi pertukaran kripto terkemuka, dilengkapi dengan fitur pencarian dan penyortiran data yang dioptimalkan untuk pengalaman *mobile* maupun desktop.
 
