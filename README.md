@@ -9,7 +9,7 @@ Mengusung desain antarmuka *dark mode* premium yang terinspirasi dari aplikasi p
 ## 🚀 Fitur Utama
 
 - **Logo Koin Asli (*Real Coin Logo*)**: Memuat logo asli masing-masing aset kripto langsung dari CoinCap CDN. Dilengkapi dengan mekanisme *fallback image* otomatis berupa inisial berlatar emas elegan jika logo tidak ditemukan atau saat jaringan terputus.
-- **Konversi Harga ke Rupiah (IDR)**: Harga USD dari API dikonversi secara *real-time* menggunakan kurs tukar terbaru. Menyesuaikan desimal pintar untuk koin micin. Jika API kurs *down*, akan menggunakan kurs cadangan (Rp16.300).
+- **Konversi Harga ke Rupiah (IDR)**: Harga USD dari API dikonversi secara *real-time* menggunakan kurs tukar terbaru.
 - **Indikator Metrik Pasar Kripto**:
   - **Kap Pasar (Market Cap)** dalam Rupiah yang diformat dengan singkatan standar lokal (Triliun, Miliar, Juta).
   - **Volume 24 Jam** dikonversi dalam Rupiah dengan struktur yang mudah dibaca.
