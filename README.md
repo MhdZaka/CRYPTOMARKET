@@ -1,69 +1,84 @@
-# Crypto Market
+# Crypto Market (Ionic + Vue)
 
-Aplikasi mobile Android (React Native + TypeScript + Expo) buat mantau harga cryptocurrency secara real-time. Data koin diambil dari **CoinLore API**, dan kurs Rupiah diambil dari **ExchangeRate API**.
+Aplikasi pemantau harga cryptocurrency secara real-time yang dibangun ulang menggunakan **Ionic Framework**, **Vue.js**, dan **TypeScript**. Data koin diambil secara *real-time* dari **CoinLore API**, dengan harga yang dikonversi ke kurs Rupiah menggunakan **ExchangeRate API**.
 
-dengan tampilan dark mode agar nyaman dilihat.
+Mengusung desain antarmuka *dark mode* premium yang terinspirasi dari aplikasi pertukaran kripto terkemuka, dilengkapi dengan fitur pencarian dan penyortiran data yang dioptimalkan untuk pengalaman *mobile* maupun desktop.
 
 ---
 
 ## 🚀 Fitur Utama
 
-- **Logo Koin Real**: Logo koin langsung muncul dari CoinCap CDN. Kalau pas offline atau logonya gak ada, otomatis bakal nampilin inisial koin sebagai cadangan.
-- **Harga Rupiah (IDR) Real-time**: Konversi harga USD ke Rupiah secara otomatis pakai data kurs terbaru. Kalau API kurs bermasalah, ada fallback otomatis ke rate Rp16.300.
-- **Statistik Lengkap**:
-  - **Kap Pasar (Market Cap)** dalam Rupiah (dibuat ringkas pakai Miliar / Triliun).
-  - **Volume 24 Jam** dalam Rupiah.
-  - **Tren 7 Hari** terakhir (naik/turun).
-- **Persentase Perubahan 24 Jam**: Ada badge hijau (kalau naik) atau merah (kalau turun) lengkap dengan ikon panah di sebelah simbol koin.
-- **Fitur Pencarian**: Bisa cari koin berdasarkan nama atau simbolnya.
-- **Tarik untuk Refresh (Pull-to-refresh)**: Tinggal tarik ke bawah buat update harga dan kurs terbaru.
+- **Logo Koin Asli (*Real Coin Logo*)**: Memuat logo asli masing-masing aset kripto langsung dari CoinCap CDN. Dilengkapi dengan mekanisme *fallback image* otomatis berupa inisial berlatar emas elegan jika logo tidak ditemukan atau saat jaringan terputus.
+- **Konversi Harga ke Rupiah (IDR)**: Harga USD dari API dikonversi secara *real-time* menggunakan kurs tukar terbaru. Menyesuaikan desimal pintar untuk koin micin. Jika API kurs *down*, akan menggunakan kurs cadangan (Rp16.300).
+- **Indikator Metrik Pasar Kripto**:
+  - **Kap Pasar (Market Cap)** dalam Rupiah yang diformat dengan singkatan standar lokal (Triliun, Miliar, Juta).
+  - **Volume 24 Jam** dikonversi dalam Rupiah dengan struktur yang mudah dibaca.
+  - **Tren 7 Hari & 24 Jam** beserta ikon panah indikator pergerakan harga (*badge* warna sukses/merah dinamis).
+- **Fitur Pencarian (Search)**: Penyaringan koin secara langsung hanya dengan mengetikkan nama (contoh: *Bitcoin*) atau simbolnya (*BTC*).
+- **Sortir Kustom Dinamis**: Opsi pengurutan data koin berdasarkan:
+  - *Rank Tertinggi* (Urutan Popularitas)
+  - *Harga Terbesar* (Top Price)
+  - *Kap Pasar Terbesar* (Top Market Cap)
+  - *Volume Perdagangan 24J Terbesar* (Most Traded)
+- **Animasi UI Interaktif (*Touch Feedback*)**: Efek animasi mengecil secara elastis (*scale down*) dan pengurangan opasitas (*opacity*) yang sangat mulus ketika kartu disentuh/klik, mereplikasi pengalaman komponen native *TouchableOpacity*.
 
 ---
 
-## 🛠️ Cara Penggunaan
+## 🛠️ Stack Teknologi
 
-Pastiin komputer kamu udah keinstall **Node.js**, dan HP kamu udah keinstall aplikasi **Expo Go** (bisa download di Play Store/App Store).
+- **Frontend Framework:** Vue 3 (Composition API, `<script setup>`)
+- **UI Toolkit:** Ionic Framework v8
+- **Bahasa:** TypeScript
+- **HTTP Client:** Axios
+- **Build Tool:** Vite
 
-1. Clone repo ini:
+*(Catatan: Versi React Native sebelumnya dari proyek ini telah disimpan dengan aman di `.gitignore` sebagai `react-native-backup` untuk keperluan referensi riwayat/legacy)*
+
+---
+
+## 💻 Cara Instalasi & Menjalankan
+
+Pastikan komputer Anda sudah terinstal **Node.js**.
+
+1. **Clone repository ini:**
    ```bash
    git clone https://github.com/MhdZaka/CRYPTOMARKET.git
    cd CRYPTOMARKET
    ```
 
-2. Install dependensi:
+2. **Install dependensi:**
    ```bash
    npm install
    ```
 
-3. Jalankan aplikasi:
+3. **Jalankan *Development Server*:**
    ```bash
-   npm start
+   npm run dev
+   ```
+   Atau jika Anda menggunakan Ionic CLI:
+   ```bash
+   npx ionic serve
    ```
 
-4. Buka di HP:
-   Buka aplikasi **Expo Go** di HP kamu, lalu scan QR code yang muncul di terminal VS Code. (Pastiin HP dan laptop kamu terhubung ke Wi-Fi yang sama).
+4. **Testing di Browser:**
+   Aplikasi akan terbuka secara otomatis di browser (*default URL*: `http://localhost:8100`). **Tips Terbaik:** Tekan tombol **F12** di browser dan pilih ikon *Device Toolbar / Mobile Simulator* untuk menikmati *layout* dalam ukuran *smartphone*.
 
 ---
 
-## 📂 Struktur Folder Proyek
+## 📂 Struktur Proyek Baru
 
 ```text
 src/
-├── api/
-│   └── coinloreApi.ts       # Setup Axios buat CoinLore API
 ├── components/
-│   ├── CryptoCard.tsx       # Kartu koin (animasi, logo koin, konversi IDR, detail statistik)
-│   ├── Header.tsx           # Header atas aplikasi (ada badge kedip "LIVE")
-│   └── Loading.tsx          # Tampilan loading pas awal buka aplikasi
+│   └── CryptoCard.vue       # Komponen Kartu Kripto (Desain UI, Animasi Interaktif, Format Rupiah)
 ├── interfaces/
-│   └── Crypto.ts            # Tipe data TypeScript (Type untuk koin & respons API)
-├── navigation/
-│   └── AppNavigator.tsx     # Router / Navigasi aplikasi
-├── screens/
-│   └── HomeScreen.tsx       # Layar utama (pencarian, load data koin & kurs Rupiah)
+│   └── Crypto.ts            # Tipe definisi data (Types/Interfaces) untuk Kripto
 ├── services/
-│   └── cryptoService.ts     # Service buat fetch data koin & kurs exchange rate
+│   └── cryptoService.ts     # Pusat pemanggilan Axios (Endpoint API Kripto & Nilai Tukar IDR)
 ├── theme/
-│   └── colors.ts            # Palette warna dark mode (Binance style)
-└── App.tsx                  # Root file untuk setup provider & rute
+│   └── variables.css        # Konfigurasi Token Desain (Variabel Warna Tema Dark Mode Premium)
+├── views/
+│   └── HomePage.vue         # Layar Utama (Bagian Header, Searchbar, Filter Sort, & Looping Data)
+├── App.vue                  # Root Komponen Vue
+└── main.ts                  # Entry Point Ionic Vue App
 ```
